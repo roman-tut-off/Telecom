@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Окно обращения" Height="600" Width="420" ResizeMode="NoResize" Background="#FFB2CBCC">
     <Grid Margin="5">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
