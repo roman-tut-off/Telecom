@@ -1,0 +1,88 @@
+﻿<Window x:Class="TutoffCursach.WinReq"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TutoffCursach"
+        mc:Ignorable="d"
+        Title="Окно обращения" Height="600" Width="420" ResizeMode="NoResize" Background="#FFB2CBCC">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Обращение:" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="5" FontSize="24"/>
+        <TextBlock x:Name="tb_time" Text="{Binding DateReq, StringFormat='dd.MM.yy HH:mm:ss'}" VerticalAlignment="Center" Margin="5" Grid.Column="1" FontSize="24"/>
+
+        <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Header="Клиент" Margin="5" >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Абонентский номер:" VerticalAlignment="Center" Margin="5" FontSize="16" Width="150"/>
+                    <ComboBox Margin="5" FontSize="16" Name="cmb_client" SelectedItem="{Binding Client}" Height="30" Width="200" DisplayMemberPath="AbonentNumb" SelectionChanged="cmb_client_SelectionChanged" />
+                </StackPanel>
+                <TextBlock  VerticalAlignment="Center" Margin="10" FontSize="16" Width="350">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{} {0} {1} {2}">
+                            <Binding Path="Client.Surname" />
+                            <Binding Path="Client.Firstname" />
+                            <Binding Path="Client.Patron" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock VerticalAlignment="Center" Margin="10" FontSize="16" Width="350">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}, ул.{1}, д.{2}, к.{3}">
+                            <Binding Path="Client.Adress.City.Title" />
+                            <Binding Path="Client.Adress.Street.Title" />
+                            <Binding Path="Client.Adress.House" />
+                            <Binding Path="Client.Adress.Apart" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Header="Описание" Margin="5" >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Краткий заголовок:" VerticalAlignment="Center" Margin="5" FontSize="16" Width="150"/>
+                    <TextBox Margin="5" FontSize="16" Text="{Binding Title}" Height="30" Width="200" Name="tb_title"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Тип проблемы:" VerticalAlignment="Center" Margin="5" FontSize="16" Width="150"/>
+                    <ComboBox Margin="5" FontSize="16" Name="cmb_type" SelectedItem="{Binding ElemReq.TypeReq}" Height="30" Width="200"
+                              SelectedValuePath="TypeReqID" SelectionChanged="cmb_type_SelectionChanged" DisplayMemberPath="Title" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Вид проблемы:" VerticalAlignment="Center" Margin="5" FontSize="16" Width="150"/>
+                    <ComboBox Margin="5" FontSize="16" Name="cmb_elem" SelectedItem="{Binding ElemReq}" Height="30" Width="200" DisplayMemberPath="Title" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        
+        <GroupBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Header="Подробное описание" Margin="5" >
+            <TextBox TextWrapping="Wrap" FontSize="16" Text="{Binding TextFull}" Name="tb_text"/>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.ColumnSpan="2" Margin="5">
+            <TextBlock Text="Статус:" VerticalAlignment="Center" Margin="5" FontSize="16" Width="150"/>
+            <ComboBox Margin="5" FontSize="16" Name="cmb_status" SelectedItem="{Binding StatusReq}" Height="30" Width="200" DisplayMemberPath="Title" />
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="10" Margin="5" Content="Сохранить" Click="bt_save_Click" FontSize="18"/>
+        <Button Grid.Column="0" Grid.Row="10" Margin="5" Content="Отмена" Click="bt_canc_Click" FontSize="18"/>
+    </Grid>
+</Window>

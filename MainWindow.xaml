@@ -1,0 +1,34 @@
+﻿<Window x:Class="TutoffCursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TutoffCursach"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="600" Width="1000"
+        MinHeight="800" MinWidth="1200" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="3" BorderBrush="DarkGray" Background="#C8A2C8" BorderThickness="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel >
+                    <TextBlock Text="Главное меню:" Margin="10" HorizontalAlignment="Center" FontSize="16"/>
+                    <Button Content="Клиенты" Margin="10" FontSize="16" Name="bt_Client" Click="bt_Client_Click"/>
+                    <Button Content="Платежи" Margin="10" FontSize="16" Name="bt_Pays" Click="bt_Pays_Click"/>
+                    <Button Content="Оборудование" Margin="10" FontSize="16" Name="bt_Staff" Click="bt_Staff_Click"/>
+                    <Button Content="Сотрудники" Margin="10" FontSize="16" Name="bt_Empl" Click="bt_Empl_Click"/>
+                    <Button Content="Обращения" Margin="10" FontSize="16" Name="bt_Request" Click="bt_Request_Click"/>
+                    <TextBlock FontSize="14" TextAlignment="Center" Margin="10 80 10 0" Name="tb_auth"/>
+                    <Button Content="Выход" Margin="10" FontSize="16" Name="bt_exit" Click="bt_exit_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Frame Name="fr_catalog" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>

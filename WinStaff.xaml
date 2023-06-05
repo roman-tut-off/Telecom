@@ -1,0 +1,44 @@
+﻿<Window x:Class="TutoffCursach.WinStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TutoffCursach"
+        mc:Ignorable="d"
+        Title="Окно оборудование" Height="450" Width="400" ResizeMode="NoResize" Background="#FFB2CBCC">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Информация о оборудовании:" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="Серийный номер:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="2" Text="Тип оборудования:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="3" Text="Марка:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="4" Text="Модель:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="5" Text="Насел. пункт:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="6" Text="Улица:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="7" Text="Дом:" FontSize="18" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" Text="{Binding SerialNumber}" Name="tb_serianumber"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" SelectedItem="{Binding TypeStaff}" DisplayMemberPath="Title"  Name="cmb_type"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" SelectedItem="{Binding Model.Brand}" DisplayMemberPath="Title"  Name="cmb_brand" SelectionChanged="cmb_brand_SelectionChanged" SelectedValuePath="BrandID" />
+        <ComboBox Grid.Row="4" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" SelectedItem="{Binding Model}" DisplayMemberPath="Title"  Name="cmb_model" />
+        <ComboBox Grid.Row="5" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" SelectedItem="{Binding Adress.City}" DisplayMemberPath="Title"  Name="cmb_city"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="180" SelectedItem="{Binding Adress.Street}" DisplayMemberPath="Title"  Name="cmb_street"/>
+        <TextBox Grid.Row="7" Grid.Column="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="80" Text="{Binding Adress.House}" Name="tb_house"/>
+        <Button Grid.Row="9" Margin="5" Content="Отмена" FontSize="18" Click="bt_del_Click" />
+        <Button Grid.Row="9" Grid.Column="1" Margin="5" Content="Сохранить" FontSize="18" Click="bt_save_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TutoffCourseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+          </Key>
+          <Property Name="AdressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="StreetID" Type="int" Nullable="false" />
+          <Property Name="House" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apart" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patron" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="AbonentNumb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdressID" Type="int" Nullable="false" />
+          <Property Name="Balance" Type="money" Nullable="false" />
+          <Property Name="TarifID" Type="int" Nullable="false" />
+          <Property Name="IsDelected" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ElemReq">
+          <Key>
+            <PropertyRef Name="ElemReqID" />
+          </Key>
+          <Property Name="ElemReqID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeReqID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employ">
+          <Key>
+            <PropertyRef Name="EmployID" />
+          </Key>
+          <Property Name="EmployID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patron" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportNum" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PasspportSer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="LoginUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="PayID" />
+          </Key>
+          <Property Name="PayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+          <Property Name="BalanceAfter" Type="money" Nullable="false" />
+          <Property Name="DatePay" Type="datetime" Nullable="false" />
+          <Property Name="EmployID" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="TextFull" Type="varchar(max)" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ElemReqID" Type="int" Nullable="false" />
+          <Property Name="DateReq" Type="datetime" Nullable="false" />
+          <Property Name="StatusReqID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeStaffID" Type="int" Nullable="false" />
+          <Property Name="ModelID" Type="int" Nullable="false" />
+          <Property Name="AdressID" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusReq">
+          <Key>
+            <PropertyRef Name="StatusReqID" />
+          </Key>
+          <Property Name="StatusReqID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tarif">
+          <Key>
+            <PropertyRef Name="TarifID" />
+          </Key>
+          <Property Name="TarifID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeReq">
+          <Key>
+            <PropertyRef Name="TypeReqID" />
+          </Key>
+          <Property Name="TypeReqID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeStaff">
+          <Key>
+            <PropertyRef Name="TypeStaffID" />
+          </Key>
+          <Property Name="TypeStaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Adress__CityID__5441852A">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Adress__StreetID__5535A963">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="StreetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Client__AdressID__59FA5E80">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Client__TarifID__5BE2A6F2">
+          <End Role="Tarif" Type="Self.Tarif" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarif">
+              <PropertyRef Name="TarifID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="TarifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ElemReq__TypeReq__45BE5BA9">
+          <End Role="TypeReq" Type="Self.TypeReq" Multiplicity="1" />
+          <End Role="ElemReq" Type="Self.ElemReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeReq">
+              <PropertyRef Name="TypeReqID" />
+            </Principal>
+            <Dependent Role="ElemReq">
+              <PropertyRef Name="TypeReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employ__PostID__4BAC3F29">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Employ" Type="Self.Employ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Employ">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Model__BrandID__656C112C">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pay__ClientID__60A75C0F">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Pay" Type="Self.Pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Pay">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pay__EmployID__5FB337D6">
+          <End Role="Employ" Type="Self.Employ" Multiplicity="1" />
+          <End Role="Pay" Type="Self.Pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employ">
+              <PropertyRef Name="EmployID" />
+            </Principal>
+            <Dependent Role="Pay">
+              <PropertyRef Name="EmployID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__ClientI__489AC854">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__ElemReq__498EEC8D">
+          <End Role="ElemReq" Type="Self.ElemReq" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElemReq">
+              <PropertyRef Name="ElemReqID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ElemReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__StatusR__4B7734FF">
+          <End Role="StatusReq" Type="Self.StatusReq" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusReq">
+              <PropertyRef Name="StatusReqID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="StatusReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__AdressID__6C190EBB">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__ModelID__6B24EA82">
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__TypeStaff__6A30C649">
+          <End Role="TypeStaff" Type="Self.TypeStaff" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeStaff">
+              <PropertyRef Name="TypeStaffID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="TypeStaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TutoffCourseModelContainer">
+          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ElemReq" EntityType="Self.ElemReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employ" EntityType="Self.Employ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pay" EntityType="Self.Pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusReq" EntityType="Self.StatusReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarif" EntityType="Self.Tarif" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeReq" EntityType="Self.TypeReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeStaff" EntityType="Self.TypeStaff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Adress__CityID__5441852A" Association="Self.FK__Adress__CityID__5441852A">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Adress__StreetID__5535A963" Association="Self.FK__Adress__StreetID__5535A963">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Client__AdressID__59FA5E80" Association="Self.FK__Client__AdressID__59FA5E80">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Client__TarifID__5BE2A6F2" Association="Self.FK__Client__TarifID__5BE2A6F2">
+            <End Role="Tarif" EntitySet="Tarif" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ElemReq__TypeReq__45BE5BA9" Association="Self.FK__ElemReq__TypeReq__45BE5BA9">
+            <End Role="TypeReq" EntitySet="TypeReq" />
+            <End Role="ElemReq" EntitySet="ElemReq" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employ__PostID__4BAC3F29" Association="Self.FK__Employ__PostID__4BAC3F29">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employ" EntitySet="Employ" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Model__BrandID__656C112C" Association="Self.FK__Model__BrandID__656C112C">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pay__ClientID__60A75C0F" Association="Self.FK__Pay__ClientID__60A75C0F">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Pay" EntitySet="Pay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pay__EmployID__5FB337D6" Association="Self.FK__Pay__EmployID__5FB337D6">
+            <End Role="Employ" EntitySet="Employ" />
+            <End Role="Pay" EntitySet="Pay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__ClientI__489AC854" Association="Self.FK__Request__ClientI__489AC854">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__ElemReq__498EEC8D" Association="Self.FK__Request__ElemReq__498EEC8D">
+            <End Role="ElemReq" EntitySet="ElemReq" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__StatusR__4B7734FF" Association="Self.FK__Request__StatusR__4B7734FF">
+            <End Role="StatusReq" EntitySet="StatusReq" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__AdressID__6C190EBB" Association="Self.FK__Staff__AdressID__6C190EBB">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__ModelID__6B24EA82" Association="Self.FK__Staff__ModelID__6B24EA82">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__TypeStaff__6A30C649" Association="Self.FK__Staff__TypeStaff__6A30C649">
+            <End Role="TypeStaff" EntitySet="TypeStaff" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TutoffCourseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+          </Key>
+          <Property Name="AdressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="StreetID" Type="Int32" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Adress__CityID__5441852A" FromRole="Adress" ToRole="City" />
+          <NavigationProperty Name="Street" Relationship="Self.FK__Adress__StreetID__5535A963" FromRole="Adress" ToRole="Street" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Client__AdressID__59FA5E80" FromRole="Adress" ToRole="Client" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__AdressID__6C190EBB" FromRole="Adress" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Model" Relationship="Self.FK__Model__BrandID__656C112C" FromRole="Brand" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK__Adress__CityID__5441852A" FromRole="City" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AbonentNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdressID" Type="Int32" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TarifID" Type="Int32" Nullable="false" />
+          <Property Name="IsDelected" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK__Client__AdressID__59FA5E80" FromRole="Client" ToRole="Adress" />
+          <NavigationProperty Name="Tarif" Relationship="Self.FK__Client__TarifID__5BE2A6F2" FromRole="Client" ToRole="Tarif" />
+          <NavigationProperty Name="Pay" Relationship="Self.FK__Pay__ClientID__60A75C0F" FromRole="Client" ToRole="Pay" />
+          <NavigationProperty Name="Request" Relationship="Self.FK__Request__ClientI__489AC854" FromRole="Client" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="ElemReq">
+          <Key>
+            <PropertyRef Name="ElemReqID" />
+          </Key>
+          <Property Name="ElemReqID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeReqID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeReq" Relationship="Self.FK__ElemReq__TypeReq__45BE5BA9" FromRole="ElemReq" ToRole="TypeReq" />
+          <NavigationProperty Name="Request" Relationship="Self.FK__Request__ElemReq__498EEC8D" FromRole="ElemReq" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Employ">
+          <Key>
+            <PropertyRef Name="EmployID" />
+          </Key>
+          <Property Name="EmployID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassportNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasspportSer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="LoginUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__Employ__PostID__4BAC3F29" FromRole="Employ" ToRole="Post" />
+          <NavigationProperty Name="Pay" Relationship="Self.FK__Pay__EmployID__5FB337D6" FromRole="Employ" ToRole="Pay" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK__Model__BrandID__656C112C" FromRole="Model" ToRole="Brand" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__ModelID__6B24EA82" FromRole="Model" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="PayID" />
+          </Key>
+          <Property Name="PayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BalanceAfter" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DatePay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployID" Type="Int32" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Pay__ClientID__60A75C0F" FromRole="Pay" ToRole="Client" />
+          <NavigationProperty Name="Employ" Relationship="Self.FK__Pay__EmployID__5FB337D6" FromRole="Pay" ToRole="Employ" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employ" Relationship="Self.FK__Employ__PostID__4BAC3F29" FromRole="Post" ToRole="Employ" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TextFull" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="ElemReqID" Type="Int32" Nullable="false" />
+          <Property Name="DateReq" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusReqID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Request__ClientI__489AC854" FromRole="Request" ToRole="Client" />
+          <NavigationProperty Name="ElemReq" Relationship="Self.FK__Request__ElemReq__498EEC8D" FromRole="Request" ToRole="ElemReq" />
+          <NavigationProperty Name="StatusReq" Relationship="Self.FK__Request__StatusR__4B7734FF" FromRole="Request" ToRole="StatusReq" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeStaffID" Type="Int32" Nullable="false" />
+          <Property Name="ModelID" Type="Int32" Nullable="false" />
+          <Property Name="AdressID" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK__Staff__AdressID__6C190EBB" FromRole="Staff" ToRole="Adress" />
+          <NavigationProperty Name="Model" Relationship="Self.FK__Staff__ModelID__6B24EA82" FromRole="Staff" ToRole="Model" />
+          <NavigationProperty Name="TypeStaff" Relationship="Self.FK__Staff__TypeStaff__6A30C649" FromRole="Staff" ToRole="TypeStaff" />
+        </EntityType>
+        <EntityType Name="StatusReq">
+          <Key>
+            <PropertyRef Name="StatusReqID" />
+          </Key>
+          <Property Name="StatusReqID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Request" Relationship="Self.FK__Request__StatusR__4B7734FF" FromRole="StatusReq" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK__Adress__StreetID__5535A963" FromRole="Street" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tarif">
+          <Key>
+            <PropertyRef Name="TarifID" />
+          </Key>
+          <Property Name="TarifID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Client__TarifID__5BE2A6F2" FromRole="Tarif" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="TypeReq">
+          <Key>
+            <PropertyRef Name="TypeReqID" />
+          </Key>
+          <Property Name="TypeReqID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ElemReq" Relationship="Self.FK__ElemReq__TypeReq__45BE5BA9" FromRole="TypeReq" ToRole="ElemReq" />
+        </EntityType>
+        <EntityType Name="TypeStaff">
+          <Key>
+            <PropertyRef Name="TypeStaffID" />
+          </Key>
+          <Property Name="TypeStaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__TypeStaff__6A30C649" FromRole="TypeStaff" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK__Adress__CityID__5441852A">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Adress__StreetID__5535A963">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="StreetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Client__AdressID__59FA5E80">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__AdressID__6C190EBB">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Model__BrandID__656C112C">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Client__TarifID__5BE2A6F2">
+          <End Role="Tarif" Type="Self.Tarif" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarif">
+              <PropertyRef Name="TarifID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="TarifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pay__ClientID__60A75C0F">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Pay" Type="Self.Pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Pay">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__ClientI__489AC854">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ElemReq__TypeReq__45BE5BA9">
+          <End Role="TypeReq" Type="Self.TypeReq" Multiplicity="1" />
+          <End Role="ElemReq" Type="Self.ElemReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeReq">
+              <PropertyRef Name="TypeReqID" />
+            </Principal>
+            <Dependent Role="ElemReq">
+              <PropertyRef Name="TypeReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__ElemReq__498EEC8D">
+          <End Role="ElemReq" Type="Self.ElemReq" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElemReq">
+              <PropertyRef Name="ElemReqID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ElemReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employ__PostID__4BAC3F29">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Employ" Type="Self.Employ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Employ">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pay__EmployID__5FB337D6">
+          <End Role="Employ" Type="Self.Employ" Multiplicity="1" />
+          <End Role="Pay" Type="Self.Pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employ">
+              <PropertyRef Name="EmployID" />
+            </Principal>
+            <Dependent Role="Pay">
+              <PropertyRef Name="EmployID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__ModelID__6B24EA82">
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Request__StatusR__4B7734FF">
+          <End Role="StatusReq" Type="Self.StatusReq" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusReq">
+              <PropertyRef Name="StatusReqID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="StatusReqID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Staff__TypeStaff__6A30C649">
+          <End Role="TypeStaff" Type="Self.TypeStaff" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeStaff">
+              <PropertyRef Name="TypeStaffID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="TypeStaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TutoffCourseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adress" EntityType="Self.Adress" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="ElemReq" EntityType="Self.ElemReq" />
+          <EntitySet Name="Employ" EntityType="Self.Employ" />
+          <EntitySet Name="Model" EntityType="Self.Model" />
+          <EntitySet Name="Pay" EntityType="Self.Pay" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="Request" EntityType="Self.Request" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="StatusReq" EntityType="Self.StatusReq" />
+          <EntitySet Name="Street" EntityType="Self.Street" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tarif" EntityType="Self.Tarif" />
+          <EntitySet Name="TypeReq" EntityType="Self.TypeReq" />
+          <EntitySet Name="TypeStaff" EntityType="Self.TypeStaff" />
+          <AssociationSet Name="FK__Adress__CityID__5441852A" Association="Self.FK__Adress__CityID__5441852A">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Adress__StreetID__5535A963" Association="Self.FK__Adress__StreetID__5535A963">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Client__AdressID__59FA5E80" Association="Self.FK__Client__AdressID__59FA5E80">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__AdressID__6C190EBB" Association="Self.FK__Staff__AdressID__6C190EBB">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Model__BrandID__656C112C" Association="Self.FK__Model__BrandID__656C112C">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Client__TarifID__5BE2A6F2" Association="Self.FK__Client__TarifID__5BE2A6F2">
+            <End Role="Tarif" EntitySet="Tarif" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pay__ClientID__60A75C0F" Association="Self.FK__Pay__ClientID__60A75C0F">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Pay" EntitySet="Pay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__ClientI__489AC854" Association="Self.FK__Request__ClientI__489AC854">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ElemReq__TypeReq__45BE5BA9" Association="Self.FK__ElemReq__TypeReq__45BE5BA9">
+            <End Role="TypeReq" EntitySet="TypeReq" />
+            <End Role="ElemReq" EntitySet="ElemReq" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__ElemReq__498EEC8D" Association="Self.FK__Request__ElemReq__498EEC8D">
+            <End Role="ElemReq" EntitySet="ElemReq" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employ__PostID__4BAC3F29" Association="Self.FK__Employ__PostID__4BAC3F29">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employ" EntitySet="Employ" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pay__EmployID__5FB337D6" Association="Self.FK__Pay__EmployID__5FB337D6">
+            <End Role="Employ" EntitySet="Employ" />
+            <End Role="Pay" EntitySet="Pay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__ModelID__6B24EA82" Association="Self.FK__Staff__ModelID__6B24EA82">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Request__StatusR__4B7734FF" Association="Self.FK__Request__StatusR__4B7734FF">
+            <End Role="StatusReq" EntitySet="StatusReq" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Staff__TypeStaff__6A30C649" Association="Self.FK__Staff__TypeStaff__6A30C649">
+            <End Role="TypeStaff" EntitySet="TypeStaff" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TutoffCourseModelContainer" CdmEntityContainer="TutoffCourseEntities">
+          <EntitySetMapping Name="Adress">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Adress">
+              <MappingFragment StoreEntitySet="Adress">
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Apart" ColumnName="Apart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="TutoffCourseModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Patron" ColumnName="Patron" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AbonentNumb" ColumnName="AbonentNumb" />
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="TarifID" ColumnName="TarifID" />
+                <ScalarProperty Name="IsDelected" ColumnName="IsDelected" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElemReq">
+            <EntityTypeMapping TypeName="TutoffCourseModel.ElemReq">
+              <MappingFragment StoreEntitySet="ElemReq">
+                <ScalarProperty Name="ElemReqID" ColumnName="ElemReqID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TypeReqID" ColumnName="TypeReqID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employ">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Employ">
+              <MappingFragment StoreEntitySet="Employ">
+                <ScalarProperty Name="EmployID" ColumnName="EmployID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Patron" ColumnName="Patron" />
+                <ScalarProperty Name="PassportNum" ColumnName="PassportNum" />
+                <ScalarProperty Name="PasspportSer" ColumnName="PasspportSer" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Model">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pay">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Pay">
+              <MappingFragment StoreEntitySet="Pay">
+                <ScalarProperty Name="PayID" ColumnName="PayID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="BalanceAfter" ColumnName="BalanceAfter" />
+                <ScalarProperty Name="DatePay" ColumnName="DatePay" />
+                <ScalarProperty Name="EmployID" ColumnName="EmployID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TextFull" ColumnName="TextFull" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ElemReqID" ColumnName="ElemReqID" />
+                <ScalarProperty Name="DateReq" ColumnName="DateReq" />
+                <ScalarProperty Name="StatusReqID" ColumnName="StatusReqID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="TypeStaffID" ColumnName="TypeStaffID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusReq">
+            <EntityTypeMapping TypeName="TutoffCourseModel.StatusReq">
+              <MappingFragment StoreEntitySet="StatusReq">
+                <ScalarProperty Name="StatusReqID" ColumnName="StatusReqID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TutoffCourseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarif">
+            <EntityTypeMapping TypeName="TutoffCourseModel.Tarif">
+              <MappingFragment StoreEntitySet="Tarif">
+                <ScalarProperty Name="TarifID" ColumnName="TarifID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeReq">
+            <EntityTypeMapping TypeName="TutoffCourseModel.TypeReq">
+              <MappingFragment StoreEntitySet="TypeReq">
+                <ScalarProperty Name="TypeReqID" ColumnName="TypeReqID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeStaff">
+            <EntityTypeMapping TypeName="TutoffCourseModel.TypeStaff">
+              <MappingFragment StoreEntitySet="TypeStaff">
+                <ScalarProperty Name="TypeStaffID" ColumnName="TypeStaffID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

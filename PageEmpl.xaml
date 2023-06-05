@@ -1,0 +1,44 @@
+﻿<Page x:Class="TutoffCursach.PageEmpl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TutoffCursach"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageEmpl">
+
+    <Grid Background="#FFB2CBCC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Создать" Margin="5 5 70 5" Width="70" Click="bt_add_click" Height="30"/>
+            <TextBox Name="tb_search" Width="200" VerticalAlignment="Center" FontSize="18"
+                     HorizontalContentAlignment="Center" Margin="5" Height="30" Background="Transparent" BorderThickness="1" BorderBrush="DarkBlue"/>
+            <Button Content="Искать" Width="70" Margin="5" Click="bt_search_click" Height="30" />
+            <Button Content="Очистить" Width="70" Margin="5" Click="bt_clear_click" Height="30" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Margin="5"  AutoGenerateColumns="False" ColumnWidth="*" Name="dg_catalog" IsReadOnly="True" SelectedValuePath="EmployID" 
+                  SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dg_catalog_click" Background="Transparent">
+            <DataGrid.Columns >
+                <DataGridTextColumn Width="50" Header="№" Binding="{Binding EmployID}" />
+                <DataGridTextColumn Width="2*" Header="Фамилия Имя Отчество">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{} {0} {1} {2}">
+                            <Binding Path="Surname" />
+                            <Binding Path="Firstname" />
+                            <Binding Path="Patron" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="1*" Header="Должность" Binding="{Binding Post.Title}"/>
+                <DataGridTextColumn Width="1*" Header="Паспорт Серия" Binding="{Binding PasspportSer}"/>
+                <DataGridTextColumn Width="1*" Header="Паспорт Номер" Binding="{Binding PassportNum}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

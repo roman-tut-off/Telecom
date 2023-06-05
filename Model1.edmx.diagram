@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="244ed3bc2efe4fe1946668ec11936b8f" Name="Diagram1">
+        <EntityTypeShape EntityType="TutoffCourseModel.Adress" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Brand" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.City" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Client" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.ElemReq" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Employ" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Model" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Pay" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Post" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Request" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Staff" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.StatusReq" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Street" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.Tarif" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.TypeReq" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutoffCourseModel.TypeStaff" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Adress__CityID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Adress__StreetID__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Client__AdressID__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Staff__AdressID__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Model__BrandID__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Client__TarifID__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Pay__ClientID__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Request__ClientI__489AC854" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__ElemReq__TypeReq__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Request__ElemReq__498EEC8D" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Employ__PostID__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Pay__EmployID__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Staff__ModelID__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Request__StatusR__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="TutoffCourseModel.FK__Staff__TypeStaff__6A30C649" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

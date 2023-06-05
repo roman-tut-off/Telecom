@@ -1,0 +1,46 @@
+﻿<Page x:Class="TutoffCursach.PageStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TutoffCursach"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageStaff">
+
+    <Grid Background="#FFB2CBCC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Создать" Margin="5 5 70 5" Width="70" Click="bt_add_click" Height="30"/>
+            <TextBox Name="tb_search" Width="200" VerticalAlignment="Center" FontSize="18" HorizontalContentAlignment="Center" 
+                     Margin="5" Height="30" Background="Transparent" BorderThickness="1" BorderBrush="DarkBlue"/>
+            <Button Content="Искать" Width="70" Margin="5" Click="bt_search_click" Height="30" />
+            <Button Content="Очистить" Width="70" Margin="5" Click="bt_clear_click" Height="30" />
+        </StackPanel>
+
+
+        <DataGrid Grid.Row="1" Margin="5"  AutoGenerateColumns="False" ColumnWidth="*" Name="dg_catalog" IsReadOnly="True" SelectedValuePath="StaffID" 
+                  SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dg_catalog_click" Background="Transparent">
+            <DataGrid.Columns >
+                <DataGridTextColumn Width="50" Header="№" Binding="{Binding StaffID}" />
+                <DataGridTextColumn Width="1*" Header="Марка" Binding="{Binding Model.Brand.Title}"/>
+                <DataGridTextColumn Width="1*" Header="Модель" Binding="{Binding Model.Title}" />
+                <DataGridTextColumn Width="1*" Header="Тип" Binding="{Binding TypeStaff.Title}"/>
+                <DataGridTextColumn Width="1*" Header="Серийный номер" Binding="{Binding SerialNumber}"/>
+                <DataGridTextColumn Width="1.5*" Header="Адрес">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0}, ул.{1}, д.{2}">
+                            <Binding Path="Adress.City.Title" />
+                            <Binding Path="Adress.Street.Title" />
+                            <Binding Path="Adress.House" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
